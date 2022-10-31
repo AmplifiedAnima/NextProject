@@ -1,0 +1,15 @@
+{%load static%}
+<h1> Add Trainingplan</h1>
+
+<form action="{% url 'addtrainingplan' %}"method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    <table>
+    {{training}}
+    </table>
+    <input type= "Submit" value="Add"/>
+</form>
+
+<script>
+    var user = "{{ user.id }}";
+    document.getElementById('melder').value=user;
+</script>

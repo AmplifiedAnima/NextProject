@@ -1,0 +1,298 @@
+
+{% block content %}
+
+<style>
+    
+   .styled-table {
+    border-collapse: collapse;
+    margin: 30px ;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 841px;
+    box-shadow: 45 35 30px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: black;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+   
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    text-align: left;
+   
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+{
+    box-sizing: border-box;
+  }
+
+.column {
+    float: left;
+    display: block;
+  
+    padding: 15px;
+}
+
+.row {
+content: "";
+display: table;
+clear: both;
+padding: 20px;
+}
+.container{   font-size: 0.8em;
+    font-family: sans-serif;
+    padding: 10px;
+    text-align: left;
+    }
+</style>
+
+<div class="column">
+
+    <div class="row">
+        <h2>Created by: {{training.user}}</h2>
+        <h2>Type of plan: {{training.mesocycle}}</h2>
+             
+
+            <table class="styled-table">
+                        <thead>
+                          
+                        <tr>
+                            <th>Exercise</th>
+                            <th>Volume Sets</th>
+                            <th>Volume Reps</th>
+                            <th>Intensity</th>
+                            <th>Week<th>
+                        </tr>
+                        <tbody> 
+                            <td>Squat </td>
+                            <td>{{a.0}}</td>
+                            <td>{{a.1}}</td>
+                            <td>{{a.2}}</td>
+                            <td>I<td>
+                            </tr>
+                            <tr> 
+                            <td></td>
+                            <td>{{b.0}}</td>
+                            <td>{{b.1}}</td>
+                            <td>{{b.2}}</td>
+                            <td>II<td>
+                            </tr>
+                            <tr> 
+                            <td></td>
+                            <td>{{c.0}}</td>
+                            <td>{{c.1}}</td>
+                            <td>{{c.2}}</td>
+                            <td>III<td>
+                            </tr>
+                            <tr>
+                            <td></td>
+                            <td>{{d.0}}</td>
+                            <td>{{d.1}}</td>
+                            <td>{{d.2}}</td>
+                            <td>IV<td>
+                            </tr>
+                        </tbody>
+            
+            </table>
+            <table class="styled-table">
+                        <thead>
+                            <tr>
+                            <th>Exercise</th>
+                            <th>Volume Sets</th>
+                            <th>Volume Reps</th>
+                            <th>Intensity</th>
+                            <th>Week<th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>Deadlift</td>
+                            <td>{{a1.0}}</td>
+                            <td>{{a1.1}}</td>
+                            <td>{{a1.2}}</td>
+                            <td>I<td>
+                            </tr>
+                            <td></td>
+                            <td>{{b1.0}}</td>
+                            <td>{{b1.1}}</td>
+                            <td>{{b1.2}}</td>
+                            <td>II<td>
+                            </tr>
+                            <td></td>
+                            <td>{{c1.0}}</td>
+                            <td>{{c1.1}}</td>
+                            <td>{{c1.2}}</td>
+                            <td>III<td>
+                            </tr>
+                            <tr>
+                            <td></td>
+                            <td>{{d1.0}}</td>
+                            <td>{{d1.1}}</td>
+                            <td>{{d1.2}}</td>
+                            <td>IV</td>
+                            </tr>
+                        </tbody>
+            </table>
+        
+            <table class="styled-table">
+                        <thead>
+                            <tr>
+                            <th>Exercise</th>
+                            <th>Volume Sets</th>
+                            <th>Volume Reps</th>
+                            <th>Intensity</th>
+                            <th>Week<th>
+                            </tr>
+                        </thead>
+                
+                        <tbody>
+                        
+                            <tr>
+                            <td>Benchpress</td>
+                            <td>{{a2.0}}</td>
+                            <td>{{a2.1}}</td>
+                            <td>{{a2.2}}</td>
+                            <td>I<td>
+                            </tr>
+                            <tr>
+                            <td></td>
+                            <td>{{b2.0}}</td>
+                            <td>{{b2.1}}</td>
+                            <td>{{b2.2}}</td>
+                            <td>II<td>
+                            </tr>
+                            <td></td>
+                            <td>{{c2.0}}</td>
+                            <td>{{c2.1}}</td>
+                            <td>{{c2.2}}</td>
+                            <td>III<td>
+                            </tr>
+                            <tr>
+                            <td></td>
+                            <td>{{d2.0}}</td>
+                            <td>{{d2.1}}</td>
+                            <td>{{d2.2}}</td>
+                            <td>IV<td>
+                            </tr>
+                        </tbody>
+            </table>
+              
+    </div>
+
+        <table class="styled-table">
+                <thead>
+                    <tr>
+                    <th>Day 1</th>
+                    <th>Day 2</th>
+                    <th>Day 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                    <td>{{day1}}</td>
+                    <td>{{day2}}</td>
+                    <td>{{day3}}</td>
+                    </tr>
+              
+                </tbody>                       
+        </table>     
+    
+        <table class="styled-table">
+                    <thead>
+                        <tr>
+                        <th>Day 4</th>
+                        <th>Day 5</th>
+                        <th>Day 6</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                        <td>{{day4}}</td>
+                        <td>{{day5}}</td>
+                        <td>{{day6}}</td>
+                        </tr>
+
+          
+                </tbody>                       
+        </table>     
+        <p></p>
+        <p></p>
+        <p></p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                <th>Day 7</th>
+                <th>Day 8</th>
+                <th>Day 9</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>{{day7}}</td>
+                    <td>{{day8}}</td>
+                    <td>{{day9}}</td>
+                </tr>
+
+  
+        </tbody>                       
+        </table>     
+        <table class="styled-table">
+            <thead>
+                <tr>
+                <th>Day 10</th>
+                <th>Day 11</th>
+                <th>Day 12</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>{{day10}}</td>
+                    <td>{{day11}}</td>
+                    <td>{{day12}}</td>
+                </tr>
+
+
+        </tbody>                       
+        </table>     
+    </div>
+</div>
+
+<div class="column">
+    <div class="row">
+
+        <form action=""method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <table>
+            {{exercise}}
+            </table>
+            <input type= "Submit" value="Add"/>
+        </form>
+        <script>
+            var trainingplan ="{{trainingplan.id}}";
+            document.getElementById('elder').value = trainingplan;
+        </script>
+
+      
+    </div>
+
+</div> 
+    
+
+{% endblock %}

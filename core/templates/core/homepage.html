@@ -1,0 +1,10 @@
+{% block content%}
+<a href="{% url 'addtrainingplan' %}">dodaj trening</a>
+{% for tran in treningi%}
+
+<p><a href= "{% url 'trainingplan' tran.id %}">{{tran.nameoftheplan}}</a></p>
+<p>jednostki treningowe planu </p>
+<p> ćwiczenia w planie: {{tran.exercises}}
+
+{% endfor %}
+{% endblock content%}
