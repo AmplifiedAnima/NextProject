@@ -5,13 +5,12 @@
     
    .styled-table {
     border-collapse: collapse;
-    margin: 20px ;
+    margin: 30px ;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 800px;
+    min-width: 841px;
     box-shadow: 45 35 30px rgba(0, 0, 0, 0.15);
 }
- 
 
 .styled-table thead tr {
     background-color: black;
@@ -39,38 +38,6 @@
 {
     box-sizing: border-box;
   }
-  .styledtabletrainingunits {
-    border-collapse: collapse;
-    margin: 20px ;
-    font-size: 1em;
-    font-family: sans-serif;
-    min-width: 550px;
-    box-shadow: 45 35 30px rgba(0, 0, 0, 0.15);
-}
-
-.styledtabletrainingunits thead tr {
-    background-color: black;
-    color: #ffffff;
-    text-align: left;
-}
-.styledtabletrainingunits tbody tr {
-    border-bottom: 1px solid #dddddd;
-   
-}
-
-.styledtabletrainingunits tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-}
-
-.styledtabletrainingunits tbody tr:last-of-type {
-    text-align: left;
-   
-}
-.styledtabletrainingunits tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
-}
-
 
 .column {
     float: left;
@@ -78,7 +45,6 @@
   
     padding: 15px;
 }
-
 
 .row {
 content: "";
@@ -92,17 +58,19 @@ padding: 20px;
     text-align: left;
     }
 </style>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <h2>{{ message }}</h2>
+    {% endfor %}
+</ul>
+{% endif %}
 
 <div class="column">
 
+
     <div class="row">
-              
-        <h3><a href="{% url 'homepage' %}"> Go back to homepage </a></h3>
-        <h2>Created by: {{training.user}}</h2>
-
-        <h2>Type of plan: {{training.mesocycle}}</h2>
-        <h2> Intensity Table:</h2>
-
+       
             <table class="styled-table">
                         <thead>
                           
@@ -114,7 +82,7 @@ padding: 20px;
                             <th>Week<th>
                         </tr>
                         <tbody> 
-                            <td>Squat </td>
+                            <td>{{main1name}} </td>
                             <td>{{a.0}}</td>
                             <td>{{a.1}}</td>
                             <td>{{a.2}}</td>
@@ -156,7 +124,7 @@ padding: 20px;
                         </thead>
                         <tbody>
                             <tr>
-                            <td>Deadlift</td>
+                            <td>{{main2name}}</td>
                             <td>{{a1.0}}</td>
                             <td>{{a1.1}}</td>
                             <td>{{a1.2}}</td>
@@ -168,10 +136,6 @@ padding: 20px;
                             <td>{{b1.2}}</td>
                             <td>II<td>
                             </tr>
-                            {% if mezocykl == 'GPP' %}
-                            
-                            {% else%}
-                            <tr>
                             <td></td>
                             <td>{{c1.0}}</td>
                             <td>{{c1.1}}</td>
@@ -185,7 +149,6 @@ padding: 20px;
                             <td>{{d1.2}}</td>
                             <td>IV</td>
                             </tr>
-                            {%endif%}
                         </tbody>
             </table>
         
@@ -203,7 +166,7 @@ padding: 20px;
                         <tbody>
                         
                             <tr>
-                            <td>Benchpress</td>
+                            <td>{{main3name}}</td>
                             <td>{{a2.0}}</td>
                             <td>{{a2.1}}</td>
                             <td>{{a2.2}}</td>
@@ -233,150 +196,25 @@ padding: 20px;
             </table>
               
     </div>
-    <h2> Training units :</h2>
-    <div class="column">
-        
-        {% for unit in trainingunits%}
-      
-        <div class="row">
-        <table class="styledtabletrainingunits">
-          
-                <thead>
-                    <tr>
-                    <th><a href="{% url 'trainingunit' unit.id %}">{{unit}}</th>
-                    </tr>
-                </thead>
-                <tbody>
-               
-                    {% comment %} <tr>reps  {{a.0}} sets {{a.1}} {{b.0}} sets {{b.1}} reps {{c.0}} sets {{c.1}} reps {{d.0}} sets {{d.1}} reps</tr> {% endcomment %}
-                    <td>
-               
-                    {% if forloop.counter0|divisibleby:"3" %}
-                        Main Exercise: Squat ||
 
-                        {% if unit == trainingunits.0 %}
-
-                        {{a.0}} sets || {{a.1}} reps ||
-
-                        {% endif %}
-
-                        {% if unit == trainingunits.3%}
-
-                        {{b.0}} sets || {{b.1}} reps ||
-
-                        {%endif %}
-
-                        {% if unit == trainingunits.6%}
-
-                        {{c.0}} sets || {{c.1}} reps ||
-
-                        {%endif%}
-
-                        {% if unit == trainingunits.9%}
-
-                        {{d.0}} sets || {{d.1}} reps ||
-
-                        {%endif%}
-
-                    {% endif %}    
-
-               
-                        {% if unit == trainingunits.1 %}
-                        Main Exercise: Deadlift  
-
-                        {{a1.0}} sets || {{a1.1}} reps ||
-
-                        {% endif %}
-
-                        {% if unit == trainingunits.4 %}
-                        Main Exercise: Deadlift  
-
-                        {{b1.0}} sets || {{b1.1}} reps ||
-
-                        {%endif %}
-
-                        {% if unit == trainingunits.7 %}
-                        Main Exercise: Deadlift  
-
-                        {{c1.0}} sets || {{c1.1}} reps ||
-
-                        {%endif%}
-
-                        {% if unit == trainingunits.10 %}
-                        Main Exercise: Deadlift  
-
-                        {{d1.0}} sets || {{d1.1}} reps ||
-                        
-                        {% endif %}   
-
-                    
-               
-                        {% if unit == trainingunits.2 %}
-                        Main Exercise: Benchpress
-
-                        {{a2.0}} sets || {{a2.1}} reps ||
-
-                        {% endif %}
-
-                        {% if unit == trainingunits.5 %}
-                        Main Exercise: Benchpress
-
-                        {{b2.0}} sets || {{b2.1}} reps ||
-
-                        {%endif %}
-
-                        {% if unit == trainingunits.8 %}
-                        Main Exercise: Benchpress
-
-                        {{c2.0}} sets || {{c2.1}} reps ||
-
-                        {%endif%}
-
-                        {% if unit == trainingunits.11 %}
-                     
-               
-                        Main Exercise: Benchpress
-                      
-                     
-                        {{d2.0}} sets || {{d2.1}} reps ||
-                        {%endif%}
-                   
-                        
-                    <tr>
-                        {% for exercise in unit.exercise_set.all %}
-                        <td>Exercise: {{exercise.exercisename}} ||
-                        {{exercise.exercisesets}} sets ||
-                        {{exercise.exercisereps}} reps</td>
-                    </tr>
-                       
-                        {%endfor%}
-        
-        {%endfor%}  
-                    
-                </tbody>                       
-        </table>     
-
-    </div>
-</div>
-
-<div class="column">
     <div class="row">
 
-        <form action=""method="POST" enctype="multipart/form-data">
-            {%csrf_token%}
-            <table>
-            {{trainingunit}}
-            </table>
-            <input type= "Submit" value="Add"/>
-        </form>
-        <script>
-            var trainingplan = "{{ trainingplan.id }}";
-            document.getElementById('tren').value = trainingplan;
-        </script>
-      
-    </div>
-
-</div> 
+<p>||</p>
+{{main2name}}
+<p>{{main1}}</p>
+<p>{{main2}}</p>
+<p>{{main3}}</p>
+<p>{{main4}}</p>
+<p>{{main4}}</p>
+<div class="column">
 
 
-{% endblock %}
+    <div class="row">
+       
+            <table class="styled-table">
+
+                
+
+
+
+{%endblock%}

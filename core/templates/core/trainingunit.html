@@ -1,0 +1,28 @@
+<a>{{trainingunit}}</a>
+<div class="column">
+    <div class="row">
+
+        <form action=""method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <table>
+            {{exercise}}
+            </table>
+            <input type= "Submit" value="Add"/>
+        </form>
+        <script>
+            var trainingunit= "{{ trainingunit.id }}";
+            document.getElementById('elder').value = trainingunit;
+        </script>
+      
+    </div>
+{%for exer in exercises%}
+<div>
+    <p>exercise : {{exer.exercisename}} </p>
+    <p>sets : {{exer.exercisesets}}</p>
+    <p>reps : {{exer.exercisereps}}</p>
+</div>
+
+
+{%endfor%}
+
+<h1><a href ="{% url 'trainingplan' trainingunit.trainingplan.id %}"> Go back </a></h1>

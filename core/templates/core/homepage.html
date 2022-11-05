@@ -1,10 +1,18 @@
 {% block content%}
-<a href="{% url 'addtrainingplan' %}">dodaj trening</a>
+<h2><a href="{% url 'addtrainingplan' %}">add trainingplan</a></h2>
+<h2><a href="{% url 'addtrainingplanfreelance' %}">add trainingplan without periodization</a></h2>
 {% for tran in treningi%}
 
-<p><a href= "{% url 'trainingplan' tran.id %}">{{tran.nameoftheplan}}</a></p>
-<p>jednostki treningowe planu </p>
-<p> ćwiczenia w planie: {{tran.exercises}}
+<h2><p><a href= "{% url 'trainingplan' tran.id %}">{{tran.nameoftheplan}} periodized</a></p></h2>
+
 
 {% endfor %}
+
+
+{% for tren in treninginoperio%}
+
+<h2><p><a href= "{% url 'trainingplanfreelance' tren.id %}">{{tren.nameoftheplan}} No periodization plan</a></p></h2>
+<p>jednostki treningowe planu </p>
+{%endfor%}
+
 {% endblock content%}
