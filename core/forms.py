@@ -1,7 +1,7 @@
 
 from django.forms import ModelForm
 from django import forms
-from . models import ExerciseTrainingUnit, MainExercise, Exercise, TrainingPlan, MainUserProfile, TrainingUnit
+from . models import MainExercise, Exercise, TrainingPlan, MainUserProfile, TrainingUnit, NewbieTrainingPlan
 from django.contrib.auth.models import User
 
 class UserForm(ModelForm):
@@ -18,10 +18,14 @@ class ChangeProfile(ModelForm):
 class TrainingForm(ModelForm):
     class Meta:
         model = TrainingPlan
-        fields =['user','nameoftheplan','mesocycle','timeoftheplan','Benchpress1RM','DeadliftT1RM','Squat1RM',]
-        # widgets= {
-        # 'user': forms.TextInput(attrs={'class':'form-control','value':'','id':'melder','type':'hidden'}), }
+        fields =['user','nameoftheplan','mesocycle','Benchpress1RM','DeadliftT1RM','Squat1RM',]
+        widgets= {
+        'user': forms.TextInput(attrs={'class':'form-control','value':'','id':'melder','type':'hidden'}), }
 
+        model = NewbieTrainingPlan
+        fields= fields =['user','nameoftheplan']
+        widgets= {
+        'user': forms.TextInput(attrs={'class':'form-control','value':'','id':'melder','type':'hidden'}), }
 
         #'Benchpress1RM','DeadliftT1RM','Squat1RM',
 
@@ -40,27 +44,17 @@ class ExerciseForm(ModelForm):
     class Meta:
 
         model = Exercise
-        fields=['exercisename','exercisesets','exercisereps']
-
+        fields=['exercisename','exercisesets','exercisereps','trainingunit']
         widgets= {
-        'trainingplan': forms.TextInput(attrs={'class':'form-control','value':'','id':'elder','type':'',
-        }),
-        }
-
-
-        model = ExerciseTrainingUnit
-        fields=['exercisename','exercisesets','exercisereps']
-        widgets= {
-        'trainingunit': forms.TextInput(attrs={'class':'form-control','value':'','id':'elder','type':'',
+        'trainingunit': forms.TextInput(attrs={'class':'form-control','value':'','id':'elder','type':'hidden',
         }),}
 
 class TrainingUnitForm(ModelForm):
     class Meta:
-
         model = TrainingUnit
-        fields=['trainingplan']
+        fields=['name','trainingplan']
 
         widgets= {
-        'trainingplan': forms.TextInput(attrs={'class':'form-control','value':'','id':'elder','type':'',
+        'trainingplan': forms.TextInput(attrs={'class':'form-control','value':'','id':'tren','type':'',
         }),
-        }
+        }   
