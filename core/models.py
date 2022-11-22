@@ -19,79 +19,6 @@ class MainUserProfile(models.Model):
         return str(self.user)
 
 
-     
-BENTPRESS="Bent press"
-WINDMILL="Windmill"
-ROWS="Rows"
-ROWS_ONE_ARM= "Rows - unilateral"
-OVERHEADPRESS="Overhead Press - bilateral"
-OVERHEADPRESSU="Overhead Press - unilateral"
-BILATERALSWING= "Bilateral Swing"
-UNILATERALSWING="Unilateral Swing"
-SNATCH = "Snatch"
-SQUAT = "Squat"
-LUNGES = "Lunges"
-BACKWARDLUNGES= "Backward Lunges"
-
-HACKSQUAT ="Hacksquat"
-ROMAINIANDL="ROMAINIANDL"
-ONESIDELEGDL="Unilateral Romainian Deadlift"
-CLASSICDEADLIFT="Classic Deadlift"
-
-
-
-
-
-
-UPPERBODY_BILATERAL_CHOICES = [ 
-    (OVERHEADPRESS, "Overhead Press - bilateral"),
-    (ROWS,"Rows"),
-    (OVERHEADPRESS,"Overhead Press"),
-    (BENTPRESS, "Bent press"),]
-
-UPPERBODY_UNILATERAL_CHOICES=[
-    (OVERHEADPRESSU, "Overhead Press - unilateral"),
-    (WINDMILL, "Windmill"),
-    (ROWS_ONE_ARM, "Rows - unilateral")]
-
-LOWEBODY_BILATERAL_CHOICES =[
-    (BILATERALSWING, "Bilateral Swing"),
-    (SQUAT , "Squat"),
-    (HACKSQUAT ,"Hacksquat"),
-    (ROMAINIANDL,"Romainian deadlift"),
-    (CLASSICDEADLIFT,"Classic Deadlift"),]
-
-LOWERBODY_UNILATERAL_CHOICES=[
-    (UNILATERALSWING,"Unilateral Swing"),
-    (SNATCH , "Snatch"),
-    (LUNGES , "Lunges"),
-    (BACKWARDLUNGES, "Backward Lunges"),
-    (ONESIDELEGDL,"Unilateral Romainian Deadlift"),]
-
-
-EXERCISE_CHOICE= [
-    (OVERHEADPRESS, "Overhead Press - bilateral"),
-    (ROWS,"Rows"),
-    (OVERHEADPRESS,"Overhead Press"),
-    (BENTPRESS, "Bent press"),
-    
-    (OVERHEADPRESSU, "Overhead Press - unilateral"),
-    (WINDMILL, "Windmill"),
-    (ROWS_ONE_ARM, "Rows - unilateral"),
-
-    (BILATERALSWING, "Bilateral Swing"),
-    (SQUAT , "Squat"),
-    (HACKSQUAT ,"Hacksquat"),
-    (ROMAINIANDL,"Romainian deadlift"),
-    (CLASSICDEADLIFT,"Classic Deadlift"),
-
-    (UNILATERALSWING,"Unilateral Swing"),
-    (SNATCH , "Snatch"),
-    (LUNGES , "Lunges"),
-    (BACKWARDLUNGES, "Backward Lunges"),
-    (ONESIDELEGDL,"Unilateral Romainian Deadlift"),
-
-]
 
 MESOCYCLE_GPP= "General physical preparation phase"
 MESOCYCLE_ACC= "Acumulation phase"
@@ -145,10 +72,6 @@ class NewbieTrainingPlan(models.Model):
     def __str__(self):
         return str(self.nameoftheplan)
 
-SETSCHOICES=[(i,i)for i in range(5)]
-AMRAP="AMRAP"
-REPCHOICES= [(i,i)for i in range(20)]
-
 class NewbieTrainingUnit(models.Model):
     name = models.CharField(max_length=40, null=True)
     trainingplan=models.ForeignKey(NewbieTrainingPlan, on_delete=models.CASCADE)
@@ -166,10 +89,84 @@ class TrainingUnit(models.Model):
     def __str__(self):
         return str(self.name)
 
+     
+BENTPRESS="Bent press"
+WINDMILL="Windmill"
+ROWS="Rows"
+ROWS_ONE_ARM= "Rows - unilateral"
+OVERHEADPRESS="Overhead Press - bilateral"
+OVERHEADPRESSU="Overhead Press - unilateral"
+BILATERALSWING= "Bilateral Swing"
+UNILATERALSWING="Unilateral Swing"
+SNATCH = "Snatch"
+SQUAT = "Squat"
+LUNGES = "Lunges"
+BACKWARDLUNGES= "Backward Lunges"
+
+HACKSQUAT ="Hacksquat"
+ROMAINIANDL="ROMAINIANDL"
+ONESIDELEGDL="Unilateral Romainian Deadlift"
+CLASSICDEADLIFT="Classic Deadlift"
+
+
+UPPERBODY_BILATERAL_CHOICES = [ 
+    (OVERHEADPRESS, "Overhead Press - bilateral"),
+    (ROWS,"Rows"),
+    (OVERHEADPRESS,"Overhead Press"),
+    (BENTPRESS, "Bent press"),]
+
+UPPERBODY_UNILATERAL_CHOICES=[
+    (OVERHEADPRESSU, "Overhead Press - unilateral"),
+    (WINDMILL, "Windmill"),
+    (ROWS_ONE_ARM, "Rows - unilateral")]
+
+LOWEBODY_BILATERAL_CHOICES =[
+    (BILATERALSWING, "Bilateral Swing"),
+    (SQUAT , "Squat"),
+    (HACKSQUAT ,"Hacksquat"),
+    (ROMAINIANDL,"Romainian deadlift"),
+    (CLASSICDEADLIFT,"Classic Deadlift"),]
+
+LOWERBODY_UNILATERAL_CHOICES=[
+    (UNILATERALSWING,"Unilateral Swing"),
+    (SNATCH , "Snatch"),
+    (LUNGES , "Lunges"),
+    (BACKWARDLUNGES, "Backward Lunges"),
+    (ONESIDELEGDL,"Unilateral Romainian Deadlift"),]
+
+
+EXERCISE_CHOICE= [
+    (OVERHEADPRESS, "Overhead Press - bilateral"),
+    (ROWS,"Rows"),
+    (OVERHEADPRESS,"Overhead Press"),
+    (BENTPRESS, "Bent press"),
+    
+    (OVERHEADPRESSU, "Overhead Press - unilateral"),
+    (WINDMILL, "Windmill"),
+    (ROWS_ONE_ARM, "Rows - unilateral"),
+
+    (BILATERALSWING, "Bilateral Swing"),
+    (SQUAT , "Squat"),
+    (HACKSQUAT ,"Hacksquat"),
+    (ROMAINIANDL,"Romainian deadlift"),
+    (CLASSICDEADLIFT,"Classic Deadlift"),
+
+    (UNILATERALSWING,"Unilateral Swing"),
+    (SNATCH , "Snatch"),
+    (LUNGES , "Lunges"),
+    (BACKWARDLUNGES, "Backward Lunges"),
+    (ONESIDELEGDL,"Unilateral Romainian Deadlift"),
+
+]
+
+SETSCHOICES=[(i,i)for i in range(5)]
+AMRAP="AMRAP"
+REPCHOICES= [(i,i)for i in range(20)]
+
 class Exercise(models.Model):
     exercisename=models.CharField(max_length=100,verbose_name="Exercise",choices=EXERCISE_CHOICE, default="Bent press")
-    exercisesets=models.IntegerField(choices=SETSCHOICES,default=1)
-    exercisereps=models.IntegerField(choices=REPCHOICES,default=1)
+    exercisesets=models.IntegerField(choices=SETSCHOICES,default=1)  # type: ignore
+    exercisereps=models.IntegerField(choices=REPCHOICES,default=1)  # type: ignore
     trainingunit=models.ForeignKey(TrainingUnit, on_delete=models.CASCADE)
     from_signal = models.BooleanField(default=False)
     
@@ -177,9 +174,9 @@ class Exercise(models.Model):
         return self.exercisename
 
 class NewbieExercise(models.Model):
-    exercisename=models.CharField(max_length=100,verbose_name="Exercise",choices=UPPERBODY_UNILATERAL_CHOICES,default="Bent press")
-    exercisesets=models.IntegerField(choices=SETSCHOICES,default=1)
-    exercisereps=models.IntegerField(choices=REPCHOICES,default=1)
+    exercisename=models.CharField(max_length=100,verbose_name="Exercise",choices=EXERCISE_CHOICE,default="Bent press")
+    exercisesets=models.IntegerField(choices=SETSCHOICES,default=1)  # type: ignore
+    exercisereps=models.IntegerField(choices=REPCHOICES,default=1)  # type: ignore
     trainingunit=models.ForeignKey(NewbieTrainingUnit, on_delete=models.CASCADE)
     from_signal = models.BooleanField(default=False)
     
@@ -190,10 +187,10 @@ class NewbieExercise(models.Model):
 
 class MainExercise(models.Model):
     mainexercise= models.CharField(max_length=100,verbose_name="Main Exercise",choices=MAIN_EXERCISE_CHOICES)
-    maximalrepetition = models.IntegerField(verbose_name="Your 1RM for given exercise in kg",default=0,blank=True,null=True)
+    intensity = models.PositiveIntegerField(verbose_name="intensity / kg",default=0,blank=True,null=True)
     trainingunit = models.ForeignKey(NewbieTrainingUnit, on_delete=models.CASCADE)
-    exercisesets=models.IntegerField(choices=SETSCHOICES,default=1)
-    exercisereps=models.IntegerField(choices=REPCHOICES,default=1)
+    exercisesets=models.IntegerField(choices=SETSCHOICES,default=1)  # type: ignore
+    exercisereps=models.IntegerField(choices= REPCHOICES,default=1)  # type: ignore
 
     def __str__(self):
         return str(self.mainexercise)
